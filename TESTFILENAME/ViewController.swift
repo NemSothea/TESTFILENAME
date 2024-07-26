@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     // test PDF
     let testPDF = "https://platform.bizplay.co.kr/BBDownload?_weCloud_down_file={\"FILE_LIST\":[{\"FILE_IDNT_ID\":\"20240417_af2411a2-3d13-4f67-9059-01bb96c2ae9c\"}],\"IS_COMPACT\":\"S\",\"CMD\":\"preview\"}&_weCloud_callback=&_weCloud_apikey=RkEXY4BCJsZhEmYR1wvYZGDYBWHFP6Y5Ni_ZQ6F5qloBQ1p7oE&_weCloud_lnggDsnc=&_weCloud_file_opt=&_weCloud_render_js=&_weCloud_complate_data="
     
-    // test korean file = 대영텍 거래명세서 6월.pdf
+    // Test korean file = 대영텍 거래명세서 6월.pdf
     //    let testPDF = "https://platform-dev.bizplay.co.kr/BBDownload?_weCloud_down_file=%257B%2522FILE_LIST%2522%253A%255B%257B%2522FILE_IDNT_ID%2522%253A%252220240703_dc01b3ad-dde6-42c2-a763-16d1025b3caf%2522%257D%255D%252C%2522IS_COMPACT%2522%253A%2522S%2522%252C%2522CMD%2522%253A%2522preview%2522%257D&_weCloud_callback=&_weCloud_apikey=DqsZc0MQ6QFfXVj-dRaYyr8uU1iRGH-zYKoO_2G_yojuFIUcBi&_weCloud_lnggDsnc=&_weCloud_file_opt=&_weCloud_render_js=&_weCloud_complate_data="
     
     
@@ -54,6 +54,10 @@ class ViewController: UIViewController {
         }
     }
     
+    /// DownloadFile
+    /// - Parameters:
+    ///   - urlString: urlString description
+    ///   - completion: completion localURL,fileExtension, fileName
     func downloadFile(from urlString: String, completion: @escaping (URL?, String?,String?) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(nil, nil,nil)
@@ -89,6 +93,9 @@ class ViewController: UIViewController {
         task.resume()
     }
     
+    /// ExtractFileName
+    /// - Parameter contentDisposition: contentDisposition description
+    /// - Returns: FileName
     func extractFileName(from contentDisposition: String) -> String? {
         // Pattern to extract the filename* or filename attribute
         let pattern = "filename\\*?=([^;]+)"
@@ -126,6 +133,9 @@ class ViewController: UIViewController {
         return nil
     }
     
+    /// MimeTypeToFileExtension
+    /// - Parameter mimeType: String
+    /// - Returns: jpeg, jpg, png, pdf
     func mimeTypeToFileExtension(mimeType: String) -> String {
         switch mimeType {
         case "image/jpeg":
