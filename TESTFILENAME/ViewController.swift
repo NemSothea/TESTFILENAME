@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 
 class ViewController: UIViewController {
-    //
+    // test PDF
     let testPDF = "https://platform.bizplay.co.kr/BBDownload?_weCloud_down_file={\"FILE_LIST\":[{\"FILE_IDNT_ID\":\"20240417_af2411a2-3d13-4f67-9059-01bb96c2ae9c\"}],\"IS_COMPACT\":\"S\",\"CMD\":\"preview\"}&_weCloud_callback=&_weCloud_apikey=RkEXY4BCJsZhEmYR1wvYZGDYBWHFP6Y5Ni_ZQ6F5qloBQ1p7oE&_weCloud_lnggDsnc=&_weCloud_file_opt=&_weCloud_render_js=&_weCloud_complate_data="
     
     // test korean file = 대영텍 거래명세서 6월.pdf
